@@ -29,9 +29,33 @@ const progressFill     = document.getElementById('progress-fill');
 const progressPct      = document.getElementById('progress-pct');
 const progressTrack    = document.getElementById('progress-track');
 const footerYear       = document.getElementById('footer-year');
+const themeToggle      = document.getElementById('theme-toggle');
+
+/* ── THEME ── */
+function getPreferredTheme() {
+  const stored = localStorage.getItem('theme');
+  if (stored === 'dark' || stored === 'light') return stored;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeToggle.setAttribute(
+    'aria-label',
+    theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+  );
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+}
 
 /* ── INIT ── */
 function init() {
+  applyTheme(getPreferredTheme());
   footerYear.textContent = new Date().getFullYear();
   renderAll();
   taskInput.focus();
@@ -419,6 +443,9 @@ filterBtns.forEach(btn => {
 
 // Clear completed
 clearCompletedBtn.addEventListener('click', clearCompleted);
+
+// Theme toggle
+themeToggle.addEventListener('click', toggleTheme);
 
 // Refresh timestamps every minute
 setInterval(() => {
