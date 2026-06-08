@@ -23,10 +23,12 @@
         <div class="header-inner">
           <div class="logo">
             <span class="logo-icon" aria-hidden="true">✦</span>
-            <span class="logo-text">Taskly</span>
+            <div class="logo-text-wrap">
+              <span class="logo-text">Taskly</span>
+              <p class="header-tagline">Your tasks, beautifully managed.</p>
+            </div>
           </div>
           <div class="header-right">
-          <p class="header-tagline">Your tasks, beautifully managed.</p>
           <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
             <span class="theme-toggle-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun">
@@ -93,7 +95,7 @@
             </div>
             <div class="kpi-content">
               <span class="kpi-value" id="count-uncompleted">0</span>
-              <span class="kpi-label">Remaining</span>
+              <span class="kpi-label">Pending</span>
             </div>
           </div>
         </section>
@@ -140,7 +142,7 @@
         <!-- FILTER BAR -->
         <div class="filter-bar" role="group" aria-label="Filter tasks">
           <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
-          <button class="filter-btn" data-filter="active" id="filter-active">Active</button>
+          <button class="filter-btn" data-filter="active" id="filter-active">Pending</button>
           <button class="filter-btn" data-filter="completed" id="filter-completed">Completed</button>
           <button class="filter-btn btn-clear-all" id="clear-completed-btn" aria-label="Clear all completed tasks">
             Clear Completed

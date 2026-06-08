@@ -120,6 +120,7 @@ a      { color: inherit; text-decoration: none; }
 }
 
 .site-header .container {
+  max-width: none;
   padding: 0 80px;
 }
 
@@ -140,7 +141,13 @@ a      { color: inherit; text-decoration: none; }
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .logo-icon {
